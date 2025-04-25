@@ -46,6 +46,7 @@ const devices = {
   "6E": "GV310LAU",
   802004: "GV58LAU",
   802006: "GV57CG",
+  802008: "GV75M",
   C8: "GV75M",
 };
 
@@ -314,7 +315,7 @@ const getDevice = (raw) => {
 const getProtocolVersion = (protocol) => {
   let deviceType;
   let deviceVersion;
-  if (["802004", "802006"].includes(protocol.substring(0, 6))) {
+  if (["802004", "802006", "802008"].includes(protocol.substring(0, 6))) {
     deviceType = devices.hasOwnProperty(protocol.substring(0, 6))
       ? devices[protocol.substring(0, 6)]
       : null;
