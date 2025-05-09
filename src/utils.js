@@ -46,7 +46,7 @@ const devices = {
   "6E": "GV310LAU",
   802004: "GV58LAU",
   802006: "GV57CG",
-  802008: "GV75M",
+  802008: "GV50CG",
   C8: "GV75M",
 };
 
@@ -1346,8 +1346,10 @@ const getAlarm = (command, report, extra = false) => {
         5: unknown harsh behavior
       */
     const reportType = report[1];
+    const speedLevel = report[0];
     return {
       type: "Harsh_Behavior",
+      level: parseInt(speedLevel, 10),
       status: parseInt(reportType, 10),
       message: messages[command][reportType],
     };
